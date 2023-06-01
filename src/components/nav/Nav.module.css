@@ -1,0 +1,42 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #333333;
+  padding: 16px;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+  font-family: 'Get Schwifty', cursive;
+  margin: 0 16px;
+  position: relative;
+  padding: 8px;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #FF9800;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.link:hover::after,
+.link.active::after {
+  transform: scaleX(1);
+}
+
+
+.search-bar {
+  margin-left: auto;
+}
+.active {
+  color: #FF9800;
+  /* Cambia el color del texto del botón activo */
+}

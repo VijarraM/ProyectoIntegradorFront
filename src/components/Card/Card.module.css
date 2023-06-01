@@ -1,0 +1,62 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+  /* Separación vertical entre las tarjetas */
+  margin-right: 16px;
+  /* Separación horizontal entre las tarjetas */
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  margin-bottom: 8px;
+  position:absolute;
+  right: 3px;
+}
+
+.link {
+  text-decoration: none;
+  color: #333333;
+}
+
+.name {
+  position: absolute;
+  top: 90%;
+  left: 16px;
+  /* Ajusta el valor según tus necesidades */
+  transform: translateY(-50%);
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  color: rgb(6, 36, 20);
+  background-color: aqua;
+  border: 12px;
+  font-family: 'Get Schwifty', cursive;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.info h2 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
