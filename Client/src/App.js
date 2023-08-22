@@ -14,28 +14,38 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
-  // const EMAIL = '';
-  // const PASSWORD = '';
-
-  function login(userData) {
-    const { email, password } = userData;
-    const URL = 'http://localhost:3001/rickandmorty/login/';
-    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-      const { access } = data;
-      setAccess(data);
-      access && navigate('/home');
-    });
-  }
 
   // function login(userData) {
-  //   if (userData.password === PASSWORD && userData.email === EMAIL) {
-  //     setAccess(true);
-  //     navigate('/home');
-  //   }
+  //   const { email, password } = userData;
+  //   const URL = 'http://localhost:3001/rickandmorty/login';
+  //   axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+  //     const { access: newAccess } = data; // Use a different variable name to avoid conflict
+  //     setAccess(newAccess); // Update the state with the new access value
+  //     newAccess && navigate('/home'); // Check the newAccess value for navigation
+  //   });
   // }
+
+  // login con async await
+  const login = async (userData) => {
+    const URL = 'http://localhost:3001/rickandmorty/login/';
+    try {
+      const { email, password } = userData;
+      const { data } = await axios(
+        `${URL}?email=${email}&password=${password}`
+      );
+      const { access } = data;
+      setAccess(access);
+      access && navigate('/home');
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     !access && navigate('/');
   }, [access, navigate]);
+
+  // ... rest of your component code
 
   const onSearch = (id) => {
     fetch(`http://localhost:3001/rickandmorty/character/${id}`)
