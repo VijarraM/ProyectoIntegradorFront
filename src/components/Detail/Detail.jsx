@@ -4,12 +4,13 @@ import styles from './Detail.module.css';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { URL_API } from '../../config';
 
 function Detail(props) {
   const { id } = useParams();
   const [character, setCharacter] = useState({});
   useEffect(() => {
-    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
+    axios(`${URL_API}/character/${id}`).then(({ data }) => {
       if (data.name) {
         setCharacter(data);
       } else {

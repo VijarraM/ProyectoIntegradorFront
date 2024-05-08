@@ -8,6 +8,7 @@ import About from './components/About/About';
 import Detail from './components/Detail/Detail';
 import Form from './components/Form/Form';
 import Favorites from './components/Favorites/Favorites';
+import { URL_API } from './config.js';
 
 function App() {
   const location = useLocation();
@@ -15,19 +16,9 @@ function App() {
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
 
-  // function login(userData) {
-  //   const { email, password } = userData;
-  //   const URL = 'http://localhost:3001/rickandmorty/login';
-  //   axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-  //     const { access: newAccess } = data; // Use a different variable name to avoid conflict
-  //     setAccess(newAccess); // Update the state with the new access value
-  //     newAccess && navigate('/home'); // Check the newAccess value for navigation
-  //   });
-  // }
-
   // login con async await
   const login = async (userData) => {
-    const URL = 'http://localhost:3001/rickandmorty/login/';
+    const URL = `${URL_API}/login/`;
     try {
       const { email, password } = userData;
       const { data } = await axios(`${URL}?email=${email}&password=${password}`);
@@ -46,7 +37,7 @@ function App() {
   // ... rest of your component code
 
   const onSearch = (id) => {
-    fetch(`http://localhost:3001/rickandmorty/character/${id}`)
+    fetch(`${URL_API}/character/${id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.name) {

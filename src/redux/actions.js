@@ -1,8 +1,9 @@
 // import { ADD_FAV, REMOVE_FAV } from './actionsTypes';
 import axios from 'axios';
+import { URL_API } from '../config';
 
 export const addFav = (character) => {
-  const endpoint = 'http://localhost:3001/rickandmorty/fav';
+  const endpoint = `${URL_API}/fav`;
   return (dispatch) => {
     axios.post(endpoint, character).then(({ data }) => {
       return dispatch({
@@ -14,7 +15,7 @@ export const addFav = (character) => {
 };
 
 export const removeFav = (id) => {
-  const endpoint = `http://localhost:3001/rickandmorty/fav/?id=${id}`;
+  const endpoint = `${URL_API}/fav/?id=${id}`;
   return (dispatch) => {
     axios.delete(endpoint).then(({ data }) => {
       return dispatch({
