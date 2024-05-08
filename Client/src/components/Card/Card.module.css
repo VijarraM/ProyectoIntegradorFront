@@ -8,9 +8,11 @@
   border-radius: 8px;
   padding: 16px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 16px;
+
+  /* margin-bottom: 16px; */
+  /* margin-top: 16px; */
   /* Separación vertical entre las tarjetas */
-  margin-right: 16px;
+  /* margin-right: 16px; */
   /* Separación horizontal entre las tarjetas */
 }
 
@@ -20,8 +22,8 @@
   cursor: pointer;
   font-size: 20px;
   margin-bottom: 8px;
-  position:absolute;
-  right: 3px;
+  /* position: absolute; */
+  /* right: 3px; */
 }
 
 .link {
@@ -33,7 +35,6 @@
   position: absolute;
   top: 90%;
   left: 16px;
-  /* Ajusta el valor según tus necesidades */
   transform: translateY(-50%);
   font-size: 24px;
   margin: 0;
@@ -47,16 +48,28 @@
 .info {
   display: flex;
   flex-direction: column;
-  margin-bottom: 8px;
 }
 
 .info h2 {
   font-size: 16px;
-  margin-bottom: 4px;
+  /* margin-bottom: 1px; */
 }
 
 .image {
   width: 100%;
   height: auto;
   border-radius: 8px;
+}
+
+.fav {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.botones {
+  justify-content: space-between;
+  display: flex;
+  width: 100%;
 }

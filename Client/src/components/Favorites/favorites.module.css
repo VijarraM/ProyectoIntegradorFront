@@ -1,0 +1,37 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Cambiamos el número de columnas a 4 */
+  gap: 10px;
+}
+
+/* Ajustamos el ancho de las tarjetas para que ocupen todo el ancho de la celda */
+.grid > * {
+  width: calc(300px - 16px); /* Restamos el espacio entre las tarjetas */
+}
+
+/* buttons.module.css */
+
+.select {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-family: 'Get Schwifty', cursive;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.select:hover {
+  background-color: #45a049;
+}
+
+.select {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}

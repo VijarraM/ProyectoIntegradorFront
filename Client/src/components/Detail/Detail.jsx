@@ -9,26 +9,26 @@ function Detail(props) {
   const { id } = useParams();
   const [character, setCharacter] = useState({});
   useEffect(() => {
-    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
-      ({ data }) => {
-        if (data.name) {
-          setCharacter(data);
-        } else {
-          window.alert('No hay personajes con ese ID');
-        }
+    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
+      if (data.name) {
+        setCharacter(data);
+      } else {
+        window.alert('No hay personajes con ese ID');
       }
-    );
+    });
     return setCharacter({});
   }, [id]);
+  console.log(character);
 
   return (
     <div className={styles.container}>
       <div>
-        <h1>Nombre: {character.name}</h1>
+        <h1>NAME: {character.name}</h1>
         <h3>STATUS: {character.status}</h3>
         <h3>SPECIE: {character.species}</h3>
         <h3>GENDER: {character.gender}</h3>
         <h3>ORIGIN:{character.origin?.name}</h3>
+        <h3>ID: {character.id}</h3>
       </div>
       <img src={character.image} alt='' />
     </div>

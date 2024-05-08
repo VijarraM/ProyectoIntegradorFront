@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-// import styles from "./Favorites.module.css";
-import { connect, useDispatch } from "react-redux";
-import Card from "../Card/Card";
-import { filterCards, orderCards } from "../../redux/actions";
+import React, { useState } from 'react';
+import { connect, useDispatch } from 'react-redux';
+import Card from '../Card/Card';
+import { filterCards, orderCards } from '../../redux/actions';
+import styles from './favorites.module.css';
 
 const Favorites = (props) => {
   const { myFavorites } = props;
@@ -20,33 +20,37 @@ const Favorites = (props) => {
   return (
     <div>
       <div>
-        <select onChange={handleOrder}>
+        <select className={styles.select} onChange={handleOrder}>
           <option>Order</option>
           <option value='A'>Ascendente</option>
           <option value='D'>Descendente</option>
         </select>
-        <select onChange={handleFilter}>
-          <option>Gender</option>
+        <select className={styles.select} onChange={handleFilter}>
+          <option value='#'>Gender</option>
           <option value='Male'>Male</option>
           <option value='Female'>Female</option>
           <option value='Genderless'>Genderless</option>
           <option value='unknown'>Unknown</option>
         </select>
       </div>
-      {myFavorites.map((char) => {
-        return (
-          <Card
-            key={char.id}
-            id={char.id}
-            name={char.name}
-            status={char.status}
-            species={char.species}
-            gender={char.gender}
-            origin={char.origin.name}
-            image={char.image}
-          />
-        );
-      })}
+      <div className={styles.grid}>
+        {' '}
+        {/* Aplica el estilo grid del componente Card */}
+        {myFavorites?.map((char) => {
+          return (
+            <Card
+              key={char.id}
+              id={char.id}
+              name={char.name}
+              status={char.status}
+              species={char.species}
+              gender={char.gender}
+              origin={char.origin}
+              image={char.image}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

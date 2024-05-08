@@ -30,9 +30,7 @@ function App() {
     const URL = 'http://localhost:3001/rickandmorty/login/';
     try {
       const { email, password } = userData;
-      const { data } = await axios(
-        `${URL}?email=${email}&password=${password}`
-      );
+      const { data } = await axios(`${URL}?email=${email}&password=${password}`);
       const { access } = data;
       setAccess(access);
       access && navigate('/home');
@@ -66,13 +64,11 @@ function App() {
 
   return (
     <div className='App' style={{ padding: '25px' }}>
-      {location !== '/' && <Nav onSearch={onSearch} />}
+      {location.pathname !== '/' && <Nav onSearch={onSearch} />}
+
       <Routes>
         <Route path={''} element={<Form login={login} />} />
-        <Route
-          path={'/home'}
-          element={<Cards characters={characters} onClose={onClose} />}
-        />
+        <Route path={'/home'} element={<Cards characters={characters} onClose={onClose} />} />
         <Route path={'/about'} element={<About />} />
         <Route path='/favorites' element={<Favorites />} />
         <Route path='/detail/:id' element={<Detail />} />

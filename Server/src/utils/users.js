@@ -1,7 +1,7 @@
 let users = [
   {
-    email: 'm@gmail.com',
-    password: '1holass',
+    email: "mariano.vijarra@gmail.com",
+    password: "mariano23",
   },
 ];
 module.exports = users;

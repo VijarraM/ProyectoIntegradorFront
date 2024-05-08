@@ -1,5 +1,10 @@
-.div{
-  display: flex;
-  justify-content: center;
-  /* background-color: rgb(250, 250, 250); */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Cambiamos el número de columnas a 4 */
+  gap: 10px;
+}
+
+/* Ajustamos el ancho de las tarjetas para que ocupen todo el ancho de la celda */
+.grid > * {
+  width: calc(300px - 16px); /* Restamos el espacio entre las tarjetas */
 }
