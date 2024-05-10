@@ -1,6 +1,9 @@
-.container{
-  display: flex;
-  justify-content: space-around;
+.container {
+  display: inline-flex;
+  width: 50%;
+  justify-content: space-evenly;
   color: aliceblue;
-
+  background-color: rgba(87, 155, 175, 0.8);
+  border-radius: 20px;
+  margin-top: 70px;
 }

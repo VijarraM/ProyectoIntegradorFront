@@ -7,4 +7,5 @@
 /* Ajustamos el ancho de las tarjetas para que ocupen todo el ancho de la celda */
 .grid > * {
   width: calc(300px - 16px); /* Restamos el espacio entre las tarjetas */
+  height: 93%;
 }

@@ -9,6 +9,7 @@ import Detail from './components/Detail/Detail';
 import Form from './components/Form/Form';
 import Favorites from './components/Favorites/Favorites';
 import { URL_API } from './config.js';
+import Swal from 'sweetalert2';
 
 function App() {
   const location = useLocation();
@@ -27,6 +28,11 @@ function App() {
       access && navigate('/home');
     } catch (error) {
       console.log(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Fallo en el inicio de sesión. Por favor, revisa tus credenciales.',
+      });
     }
   };
 
