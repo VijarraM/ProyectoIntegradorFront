@@ -10,6 +10,8 @@ import Form from './components/Form/Form';
 import Favorites from './components/Favorites/Favorites';
 import { URL_API } from './config.js';
 import Swal from 'sweetalert2';
+import Register from './components/Register/Register.jsx';
+import NotFound from './components/NotFound/NotFound.jsx';
 
 function App() {
   const location = useLocation();
@@ -36,22 +38,18 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    !access && navigate('/');
-  }, [access, navigate]);
-
-  // ... rest of your component code
-
-  const onSearch = (id) => {
-    fetch(`${URL_API}/character/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.name) {
-          setCharacters((oldChars) => [...oldChars, data]);
-        } else {
-          window.alert('¡No hay personajes con este ID!');
-        }
-      });
+  const onSearch = async (id) => {
+    try {
+      const response = await fetch(`${URL_API}/character/${id}`);
+      const data = await response.json();
+      if (data.name) {
+        setCharacters((oldChars) => [...oldChars, data]);
+      } else {
+        window.alert('¡No hay personajes con este ID!');
+      }
+    } catch (error) {
+      console.error('Hubo un error al realizar la búsqueda:', error);
+    }
   };
 
   const onClose = (id) => {
@@ -59,16 +57,31 @@ function App() {
     setCharacters(filtered);
   };
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data } = await axios.get(`${URL_API}/characters`);
+        console.log(data);
+        setCharacters(data.characters);
+      } catch (error) {
+        console.error('Hubo un error al obtener los personajes:', error);
+      }
+    };
+
+    fetchData();
+  }, []); // [] significa que solo se ejecuta una vez al inicio
+
   return (
     <div className='App' style={{ padding: '25px' }}>
-      {location.pathname !== '/' && <Nav onSearch={onSearch} />}
-
+      <Nav onSearch={onSearch} />
       <Routes>
-        <Route path={''} element={<Form login={login} />} />
-        <Route path={'/home'} element={<Cards characters={characters} onClose={onClose} />} />
+        <Route path={'/'} element={<Cards characters={characters} onClose={onClose} />} />
+        <Route path={'/reg'} element={<Register />} />
+        <Route path={'/login'} element={<Form login={login} />} />
         <Route path={'/about'} element={<About />} />
         <Route path='/favorites' element={<Favorites />} />
         <Route path='/detail/:id' element={<Detail />} />
+        <Route path='/*' element={<NotFound />} />
       </Routes>
     </div>
   );
