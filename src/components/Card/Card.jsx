@@ -43,14 +43,14 @@ function Card(props) {
         <h2 className={styles.name}>{name}</h2>
       </Link>
 
+      <div>
+        <img className={styles.image} src={image} alt='' />
+      </div>
       <div className={styles.info}>
         <h2>status: {status}</h2>
         <h2>species: {species}</h2>
         <h2>gender: {gender}</h2>
-        <h3>origin: {origin}</h3>
-      </div>
-      <div>
-        <img src={image} alt='' />
+        <h2>origin: {origin}</h2>
       </div>
     </div>
   );
