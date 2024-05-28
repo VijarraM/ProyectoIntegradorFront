@@ -8,12 +8,7 @@
   border-radius: 8px;
   padding: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-  /* margin-bottom: 16px; */
-  /* margin-top: 16px; */
-  /* Separación vertical entre las tarjetas */
-  /* margin-right: 16px; */
-  /* Separación horizontal entre las tarjetas */
+  margin: auto;
 }
 
 .button {
@@ -22,8 +17,6 @@
   cursor: pointer;
   font-size: 10px;
   margin-bottom: 8px;
-  /* position: absolute; */
-  /* right: 3px; */
 }
 
 .link {
@@ -47,13 +40,11 @@
 
 .info {
   display: block;
-  /* flex-direction: row; */
   font-size: 14px;
 }
 
 .info h2 {
   font-size: 14px;
-  /* margin-bottom: 1px; */
 }
 
 .image {
