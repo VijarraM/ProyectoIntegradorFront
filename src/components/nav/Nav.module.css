@@ -1,16 +1,24 @@
 .nav {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background-color: #333333;
-  padding-bottom: 10px;
+  padding: 10px;
   margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.linksContainer {
+  display: flex;
 }
 
 .link {
-  text-decoration: none;
+  font-size: 14px;
   color: white;
-  font-family: 'Get Schwifty', cursive;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
   margin: 0 16px;
   position: relative;
   padding: 8px;
@@ -29,14 +37,70 @@
 }
 
 .link:hover::after,
-.link.active::after {
+.active::after {
   transform: scaleX(1);
 }
 
 .search-bar {
   margin-left: auto;
 }
-.active {
-  color: #ff9800;
-  /* Cambia el color del texto del botón activo */
+
+.userMenu {
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+}
+
+.userInitial {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-right: 16px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgb(67, 160, 247);
+  text-transform: uppercase;
+}
+
+.signOut,
+.link {
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.signOut i,
+.link i {
+  margin-right: 8px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .userMenu {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .search-bar {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .linksContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
 }

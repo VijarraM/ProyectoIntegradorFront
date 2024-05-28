@@ -1,9 +1,9 @@
-import styles from "./Card.module.css";
+import styles from './Card.module.css';
 
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useLocation, Link } from "react-router-dom";
-import { removeFav, addFav } from "../../redux/actions";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, Link } from 'react-router-dom';
+import { removeFav, addFav } from '../../redux/actions';
 
 function Card(props) {
   const location = useLocation();
@@ -15,8 +15,7 @@ function Card(props) {
   const dispatch = useDispatch();
 
   const favorites = useSelector((state) => state.myFavorites);
-  const isFav =
-    Array.isArray(favorites) && favorites.some((fav) => fav.id === id);
+  const isFav = Array.isArray(favorites) && favorites.some((fav) => fav.id === id);
 
   const handleFavorite = () => {
     if (isFav) {
@@ -30,9 +29,9 @@ function Card(props) {
     <div className={styles.container}>
       <div className={styles.botones}>
         <button onClick={handleFavorite} className={styles.fav}>
-          {isFav ? "❤️" : "🤍"}
+          {isFav ? '❤️' : '🤍'}
         </button>
-        {location.pathname !== "/favorites" && (
+        {location.pathname !== '/favorites' && (
           <button onClick={() => onClose(id)} className={styles.button}>
             ✖️
           </button>
@@ -41,16 +40,15 @@ function Card(props) {
 
       <Link to={`/detail/${id}`}>
         <h2 className={styles.name}>{name}</h2>
+        <img className={styles.image} src={image} alt='' />
       </Link>
 
-      <div>
-        <img className={styles.image} src={image} alt='' />
-      </div>
+      <div></div>
       <div className={styles.info}>
-        <h2>status: {status}</h2>
+        {/* <h2>status: {status}</h2>
         <h2>species: {species}</h2>
         <h2>gender: {gender}</h2>
-        <h2>origin: {origin}</h2>
+        <h2>origin: {origin}</h2> */}
       </div>
     </div>
   );

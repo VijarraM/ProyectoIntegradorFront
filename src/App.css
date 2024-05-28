@@ -1,3 +1,29 @@
 .App {
-   text-align: center;
+  text-align: center;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.pagination a {
+  margin: 0 10px;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: white;
+  background-color: #333333;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.pagination a:hover {
+  background-color: #0d1824;
+}
+
+.pagination a:disabled {
+  background-color: #1d0b0b;
+  pointer-events: none;
 }

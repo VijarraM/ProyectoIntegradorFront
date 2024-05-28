@@ -1,11 +1,11 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Cambiamos el número de columnas a 4 */
-  gap: 10px;
+  grid-template-columns: repeat(5, 1fr); /* Cambiamos el número de columnas a 4 */
+  gap: 30px;
 }
 
 /* Ajustamos el ancho de las tarjetas para que ocupen todo el ancho de la celda */
 .grid > * {
   width: calc(300px - 16px); /* Restamos el espacio entre las tarjetas */
-  height: 93%;
+  height: 95%;
 }
