@@ -76,6 +76,12 @@ function App() {
       setCharacters(data.characters);
       setPaginationInfo({ next: data.next, prev: data.prev });
     } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Hubo un error al obtener los personajes',
+        error,
+      });
       console.error('Hubo un error al obtener los personajes:', error);
     }
   };
